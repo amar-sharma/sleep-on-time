@@ -2,8 +2,9 @@
 # Written by Amar Sharma <amarsharma.hacker@gmail.com>
 
 TYPE=$1
-PASS_LENGTH=32
+PASS_LENGTH=17
 EMAIL_TO="amarsharma.hacker@gmail.com"
+PASS_FILE="/tmp/d0n3"
 
 MAIL_GUN=0 # If you want to use @mailgun, set to 1
 # @mailgun settings
@@ -55,17 +56,33 @@ send_email() {
   fi
 }
 
+lock_screen() {
+  sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+}
+
 set_password() {
   password=`random_passwd`
   sudo dscl . -passwd $HOME $password
   if [[ $TYPE == "random" ]]; then
     send_email $password
+    sleep 3
+    if [[ `network_stat` != "Online" ]]; then
+      TYPE="default"
+      set_password
+    fi
+    rm -f $PASS_FILE
+  else
+    touch $PASS_FILE
   fi
+  lock_screen
 }
 
 main() {
   if [[ $# == 0 ]] ; then
     usage
+  fi
+  if [[ $TYPE == "default" && -f $PASS_FILE ]]; then
+    return
   fi
   if [[ `network_stat` == "Online" && `battery_stat` > 10 || $TYPE == "default" ]]; then
     set_password
