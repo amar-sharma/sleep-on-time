@@ -10,7 +10,9 @@ After cloning this repository configure the script as follows:
 Change the @mailgun settings
 
 Now in terminal type: `crontab -e`
+
 Enter the following settings:
+
 ```
 MAILTO="your email id"
 */5 2,3 * * * bash /path/to/sleep-on-time/change_pass.sh random
