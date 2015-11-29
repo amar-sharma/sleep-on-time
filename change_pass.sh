@@ -28,6 +28,10 @@ network_stat() {
   fi
 }
 
+battery_stat() {
+  echo `pmset -g batt | grep % | awk '{split($2,a,"%"); print a[1]}'`
+}
+
 random_passwd() {
   if [[ $TYPE == "default" ]]; then
     echo "default_password"
@@ -60,16 +64,15 @@ set_password() {
 }
 
 main() {
-  if [[ `network_stat` == "Online" ]]; then
-    echo `random_passwd`
+  if [[ $# == 0 ]] ; then
+    usage
+  fi
+  if [[ `network_stat` == "Online" && `battery_stat` > 10 || $TYPE == "default" ]]; then
     set_password
   else
-    echo "No Internet!!! safely exiting"
+    echo "No Internet or battery !!! safely exiting"
   fi
 }
 
-if [[ $# == 0 ]] ; then
-  usage
-fi
-
 main $@
+
