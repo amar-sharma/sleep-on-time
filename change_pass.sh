@@ -71,10 +71,10 @@ set_password() {
       set_password
     fi
     rm -f $PASS_FILE
+    lock_screen
   else
     touch $PASS_FILE
   fi
-  lock_screen
 }
 
 main() {
