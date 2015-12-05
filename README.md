@@ -14,9 +14,9 @@ Now in terminal type: `crontab -e`
 Enter the following settings:
 
 ```
-MAILTO="your email id"
-*/5 2,3 * * * bash /path/to/sleep-on-time/change_pass.sh random
-*/10 8,9,10,11 * * * bash /path/to/sleep-on-time/change_pass.sh default
-* 2,3 * * * sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
-45,50,55 1 * * * sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+MAILTO="amarsharma.hacker@gmail.com"
+*/5 2,3 * * * /Users/amarsharma/Users/change_pass.sh random
+*/10 7,8,9,10,11,1 * * * /Users/amarsharma/Users/change_pass.sh default
+* 2,3 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
+45,50,55 1 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 ```
