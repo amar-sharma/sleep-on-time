@@ -21,7 +21,7 @@ usage() {
 }
 
 network_stat() {
-  wget -q --tries=10 --timeout=20 --spider http://google.com 2>&1 > /dev/null
+  curl -s -m 5 -L --retry 3 http://google.com 2>&1 > /dev/null
   if [[ $? -eq 0 ]]; then
     echo "Online"
   else
