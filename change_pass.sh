@@ -57,7 +57,7 @@ send_email() {
 }
 
 lock_screen() {
-  sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+  sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 }
 
 set_password() {
