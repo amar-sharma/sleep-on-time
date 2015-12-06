@@ -17,8 +17,8 @@ Enter the following settings:
 
 ```
 MAILTO="your Email-id"
-*/5 2,3 * * * /Users/amarsharma/Users/change_pass.sh random
-*/10 5-11,13 * * * /Users/amarsharma/Users/change_pass.sh default
+*/5 2,3 * * * /path/to/sleep-on-time/change_pass.sh random
+*/10 5-11,13 * * * /path/to/sleep-on-time/change_pass.sh default
 * 2,3 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 45,50,55 1 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 ```
