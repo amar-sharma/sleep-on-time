@@ -7,6 +7,8 @@ After cloning this repository configure the script as follows:
 
 `MAIL_GUN`: If you want to use mail gun for email make it `1`, default is `0`
 
+Change `default_password` to your default password
+
 Change the @mailgun settings
 
 Now in terminal type: `crontab -e`
