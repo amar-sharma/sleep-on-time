@@ -14,9 +14,9 @@ Now in terminal type: `crontab -e`
 Enter the following settings:
 
 ```
-MAILTO="amarsharma.hacker@gmail.com"
+MAILTO="your Email-id"
 */5 2,3 * * * /Users/amarsharma/Users/change_pass.sh random
-*/10 7,8,9,10,11,1 * * * /Users/amarsharma/Users/change_pass.sh default
+*/10 5-11,13 * * * /Users/amarsharma/Users/change_pass.sh default
 * 2,3 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 45,50,55 1 * * * open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app || true
 ```
